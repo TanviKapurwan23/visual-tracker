@@ -10,16 +10,122 @@
     "Segoe UI",
     sans-serif;
 
-  background: #0b0b10;
-  color: white;
+  --app-bg: #0b0b10;
+  --app-surface: #0f0f15;
+  --app-card: #14141c;
+  --app-text: #ffffff;
+  --app-muted: rgba(255, 255, 255, 0.4);
+  --app-border: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="light"] {
+  --app-bg: #f6f6f8;
+  --app-surface: #ffffff;
+  --app-card: #ffffff;
+  --app-text: #17171c;
+  --app-muted: rgba(23, 23, 28, 0.55);
+  --app-border: rgba(23, 23, 28, 0.1);
+}
+
+[data-theme="dark"] {
+  --app-bg: #0b0b10;
+  --app-surface: #0f0f15;
+  --app-card: #14141c;
+  --app-text: #ffffff;
+  --app-muted: rgba(255, 255, 255, 0.4);
+  --app-border: rgba(255, 255, 255, 0.1);
 }
 
 * {
   box-sizing: border-box;
 }
 
+html {
+  background: var(--app-bg);
+  color: var(--app-text);
+}
+
 body {
   margin: 0;
   min-width: 320px;
-  background: #0b0b10;
+  min-height: 100vh;
+  background: var(--app-bg);
+  color: var(--app-text);
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* ============================= */
+/* Light mode component overrides */
+/* ============================= */
+
+[data-theme="light"] [class~="text-white"] {
+  color: var(--app-text) !important;
+}
+
+[data-theme="light"] [class~="text-white/80"] {
+  color: rgba(23, 23, 28, 0.8) !important;
+}
+
+[data-theme="light"] [class~="text-white/70"] {
+  color: rgba(23, 23, 28, 0.7) !important;
+}
+
+[data-theme="light"] [class~="text-white/60"] {
+  color: rgba(23, 23, 28, 0.6) !important;
+}
+
+[data-theme="light"] [class~="text-white/55"] {
+  color: rgba(23, 23, 28, 0.55) !important;
+}
+
+[data-theme="light"] [class~="text-white/50"] {
+  color: rgba(23, 23, 28, 0.5) !important;
+}
+
+[data-theme="light"] [class~="text-white/40"] {
+  color: rgba(23, 23, 28, 0.55) !important;
+}
+
+[data-theme="light"] [class~="text-white/35"] {
+  color: rgba(23, 23, 28, 0.45) !important;
+}
+
+[data-theme="light"] [class~="text-white/30"] {
+  color: rgba(23, 23, 28, 0.4) !important;
+}
+
+[data-theme="light"] [class~="border-white/10"] {
+  border-color: var(--app-border) !important;
+}
+
+[data-theme="light"] [class~="border-white/5"] {
+  border-color: rgba(23, 23, 28, 0.06) !important;
+}
+
+[data-theme="light"] [class~="border-white/15"] {
+  border-color: rgba(23, 23, 28, 0.12) !important;
+}
+
+/* Keep vision hero text white in both themes */
+
+[data-theme="light"] .vision-hero-text {
+  color: white !important;
+}
+
+[data-theme="light"] .vision-hero-muted {
+  color: rgba(255, 255, 255, 0.55) !important;
 }
